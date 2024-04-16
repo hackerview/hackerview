@@ -33,19 +33,14 @@ jobs:
     #     host: ${{ secrets.HOST }}
     #     username: ${{ secrets.USERNAME }}
     - name: Run Command
-      uses: tiyee/action-ssh@v1.0.1
+      uses: tiyee/action-ssh@release
       with:
-        # Command to execute on the remote server.
-          command: whoami
-          # Hostname or IP address of the server.
-          host: ${{ secrets.HOST }}
-          # Username for authentication.
-          username: ${{ secrets.USERNAME }}
-          # Port number of the server.
-          port: ${{ secrets.PORT }}
-          # File  string that contains a private key for either key-based or hostbased user authentication (OpenSSH format)
-          privateKey: ${{ secrets.SSH_KEY }}
-          
+          host: ${{ secrets.HOST }} 
+          port: ${{ secrets.PORT }} 
+          username: ${{ secrets.USERNAME }} 
+          privateKey: ${{ secrets.SSH_KEY }} 
+          command: 'ls -alh'
+
       # run: |
       #     ssh ${{ secrets.USERNAME }}@${{ secrets.HOST }} "whoami;ls -la"
           
