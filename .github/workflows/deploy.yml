@@ -20,6 +20,10 @@ jobs:
   ssh:
     runs-on: ubuntu-latest
     steps:
+    - name: Setting SSH key
+      uses: webfactory/ssh-agent@v0.5.4
+      with:
+        ssh-private-key: ${{ secrets.SSH_KEY }}
     - name: Scan public keys
       run: ssh-keyscan ${{ secrets.HOSTNAME }} >> ~/.ssh/known_hosts
     - name: Connect to Server
@@ -29,8 +33,21 @@ jobs:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
     - name: Run Command
-      run: |
-          ssh ${{ secrets.USERNAME }}@${{ secrets.HOST }} "whoami;ls -la"
+      uses: tiyee/action-ssh@v1.0.1
+      with:
+        # Command to execute on the remote server.
+          command: ls
+          # Hostname or IP address of the server.
+          host: ${{ secrets.HOST }}
+          # Username for authentication.
+          username: ${{ secrets.USERNAME }}
+          # Port number of the server.
+          port: ${{ secrets.PORT }}
+          # File  string that contains a private key for either key-based or hostbased user authentication (OpenSSH format)
+          privateKey: ${{ secrets.SSH_KEY }}
+          
+      # run: |
+      #     ssh ${{ secrets.USERNAME }}@${{ secrets.HOST }} "whoami;ls -la"
           
     # - name: Checkout code
     #   uses: actions/checkout@v2
