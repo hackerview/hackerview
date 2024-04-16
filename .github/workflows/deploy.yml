@@ -37,7 +37,7 @@ jobs:
       #     echo Add other actions to build,
       #     echo test, and deploy your project.
       - name: SSH into remote server and run command
-        uses: appleboy/ssh-action@master
+        uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
