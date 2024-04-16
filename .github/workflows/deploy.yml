@@ -20,18 +20,18 @@ jobs:
   ssh:
     runs-on: ubuntu-latest
     steps:
-    - name: Setting SSH key
-      uses: webfactory/ssh-agent@v0.5.4
-      with:
-        ssh-private-key: ${{ secrets.KEY }}
-    - name: Scan public keys
-      run: ssh-keyscan ${{ secrets.HOST }} >> ~/.ssh/known_hosts
-    - name: Connect to Server
-      uses: actions/setup-ssh@v3
-      with:
-        ssh-key: ${{ secrets.KEY }}
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
+    # - name: Setting SSH key
+    #   uses: webfactory/ssh-agent@v0.5.4
+    #   with:
+    #     ssh-private-key: ${{ secrets.KEY }}
+    # - name: Scan public keys
+    #   run: ssh-keyscan ${{ secrets.HOST }} >> ~/.ssh/known_hosts
+    # - name: Connect to Server
+    #   uses: actions/setup-ssh@v3
+    #   with:
+    #     ssh-key: ${{ secrets.KEY }}
+    #     host: ${{ secrets.HOST }}
+    #     username: ${{ secrets.USERNAME }}
 
     - name: SSH into remote server and run command
       uses: appleboy/ssh-action@master
