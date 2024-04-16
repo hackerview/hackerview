@@ -20,20 +20,29 @@ jobs:
   ssh:
     runs-on: ubuntu-latest
     steps:
+      - name: Connect to Server
+        uses: actions/setup-ssh@v3
+        with:
+          ssh-key: ${{ secrets.SSH_KEY }}
+          host: s3.serv00.com
+          username: fuhj
+      - name: Run Command
+        run: |
+          ssh fuhj@s3.serv00.com "ls -la"
     # - name: Checkout code
     #   uses: actions/checkout@v2
 
-    - name: SSH into remote server and run command
-      uses: appleboy/ssh-action@master
-      with:
-        host: s3.serv00.com
-        username: ${{ secrets.USERNAME }}
-        password: ${{ secrets.PASSWORD }}
-        port: ${{ secrets.PORT }}
-        script: |
-          whoami
-          cd cd /home/fuhj/repo/gost
-          ls -l
+    # - name: SSH into remote server and run command
+    #   uses: appleboy/ssh-action@master
+    #   with:
+    #     host: s3.serv00.com
+    #     username: ${{ secrets.USERNAME }}
+    #     password: ${{ secrets.PASSWORD }}
+    #     port: ${{ secrets.PORT }}
+    #     script: |
+    #       whoami
+    #       cd cd /home/fuhj/repo/gost
+    #       ls -l
 
     # - name: SSH into remote server and run command
     #   uses: appleboy/ssh-action@master
