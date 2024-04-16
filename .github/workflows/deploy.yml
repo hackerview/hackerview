@@ -32,19 +32,27 @@ jobs:
     #     ssh-key: ${{ secrets.KEY }}
     #     host: ${{ secrets.HOST }}
     #     username: ${{ secrets.USERNAME }}
-
-    - name: SSH into remote server and run command
-      uses: appleboy/ssh-action@master
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@v1.0.3
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
-        # key: ${{ secrets.KEY }} 
         port: ${{ secrets.PORT }}
-        script: |
-          whoami
-          cd cd /home/fuhj/repo/gost
-          ls -l
+        script: whoami
+      
+    # - name: SSH into remote server and run command
+    #   uses: appleboy/ssh-action@master
+    #   with:
+    #     host: ${{ secrets.HOST }}
+    #     username: ${{ secrets.USERNAME }}
+    #     password: ${{ secrets.PASSWORD }}
+    #     # key: ${{ secrets.KEY }} 
+    #     port: ${{ secrets.PORT }}
+    #     script: |
+    #       whoami
+    #       cd cd /home/fuhj/repo/gost
+    #       ls -l
 
     # - name: SSH into remote server and run command
     #   uses: appleboy/ssh-action@master
