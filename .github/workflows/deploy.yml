@@ -32,14 +32,14 @@ jobs:
     #     ssh-key: ${{ secrets.SSH_KEY }}
     #     host: ${{ secrets.HOST }}
     #     username: ${{ secrets.USERNAME }}
-    - name: Run Command
-      uses: tiyee/action-ssh@v1.0.1
-      with:
-          host: ${{ secrets.HOST }} 
-          port: ${{ secrets.PORT }} 
-          username: ${{ secrets.USERNAME }} 
-          privateKey: ${{ secrets.SSH_KEY }} 
-          command: 'ls -alh'
+    # - name: Run Command
+    #   uses: tiyee/action-ssh@v1.0.1
+    #   with:
+    #       host: ${{ secrets.HOST }} 
+    #       port: ${{ secrets.PORT }} 
+    #       username: ${{ secrets.USERNAME }} 
+    #       privateKey: ${{ secrets.SSH_KEY }} 
+    #       command: 'ls -alh'
 
       # run: |
       #     ssh ${{ secrets.USERNAME }}@${{ secrets.HOST }} "whoami;ls -la"
@@ -47,17 +47,17 @@ jobs:
     # - name: Checkout code
     #   uses: actions/checkout@v2
 
-    # - name: SSH into remote server and run command
-    #   uses: appleboy/ssh-action@master
-    #   with:
-    #     host: s3.serv00.com
-    #     username: ${{ secrets.USERNAME }}
-    #     password: ${{ secrets.PASSWORD }}
-    #     port: ${{ secrets.PORT }}
-    #     script: |
-    #       whoami
-    #       cd cd /home/fuhj/repo/gost
-    #       ls -l
+    - name: SSH into remote server and run command
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        port: ${{ secrets.PORT }}
+        script: |
+          whoami
+          cd cd /home/fuhj/repo/gost
+          ls -l
 
     # - name: SSH into remote server and run command
     #   uses: appleboy/ssh-action@master
