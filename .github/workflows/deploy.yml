@@ -20,19 +20,7 @@ jobs:
   ssh:
     runs-on: ubuntu-latest
     steps:
-    # - name: Setting SSH key
-    #   uses: webfactory/ssh-agent@v0.5.4
-    #   with:
-    #     ssh-private-key: ${{ secrets.KEY }}
-    # - name: Scan public keys
-    #   run: ssh-keyscan ${{ secrets.HOST }} >> ~/.ssh/known_hosts
-    # - name: Connect to Server
-    #   uses: actions/setup-ssh@v3
-    #   with:
-    #     ssh-key: ${{ secrets.KEY }}
-    #     host: ${{ secrets.HOST }}
-    #     username: ${{ secrets.USERNAME }}
-    - name: executing remote ssh commands using password
+    - name: executing remote ssh commands using ssh key
       uses: appleboy/ssh-action@v1.0.3
       with:
         host: ${{ secrets.HOST }}
@@ -46,4 +34,4 @@ jobs:
           cd /home/fuhj/repo/gost
           ps -ef|grep gost
           date >hello.txt
-          date > /home/fuhj/domains/fuhj.serv00.net/public_html/index.html
+          date > /home/${{ secrets.USERNAME }}/domains/${{ secrets.USERNAME }}.serv00.net/public_html/index.html
