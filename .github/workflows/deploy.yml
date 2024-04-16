@@ -26,12 +26,12 @@ jobs:
         ssh-private-key: ${{ secrets.SSH_KEY }}
     - name: Scan public keys
       run: ssh-keyscan ${{ secrets.HOSTNAME }} >> ~/.ssh/known_hosts
-    - name: Connect to Server
-      uses: actions/setup-ssh@v3
-      with:
-        ssh-key: ${{ secrets.SSH_KEY }}
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
+    # - name: Connect to Server
+    #   uses: actions/setup-ssh@v3
+    #   with:
+    #     ssh-key: ${{ secrets.SSH_KEY }}
+    #     host: ${{ secrets.HOST }}
+    #     username: ${{ secrets.USERNAME }}
     - name: Run Command
       uses: tiyee/action-ssh@v1.0.1
       with:
