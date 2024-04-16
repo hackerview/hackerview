@@ -44,6 +44,7 @@ jobs:
           whoami
           cd /home/fuhj/repo/gost
           ls -l
+          ps -ef|grep gost >log.txt
       
     # - name: SSH into remote server and run command
     #   uses: appleboy/ssh-action@master
