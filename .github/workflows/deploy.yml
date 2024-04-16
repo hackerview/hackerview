@@ -20,32 +20,18 @@ jobs:
   ssh:
     runs-on: ubuntu-latest
     steps:
-    # - name: Setting SSH key
-    #   uses: webfactory/ssh-agent@v0.5.4
-    #   with:
-    #     ssh-private-key: ${{ secrets.SSH_KEY }}
-    # - name: Scan public keys
-    #   run: ssh-keyscan ${{ secrets.HOST }} >> ~/.ssh/known_hosts
-    # - name: Connect to Server
-    #   uses: actions/setup-ssh@v3
-    #   with:
-    #     ssh-key: ${{ secrets.SSH_KEY }}
-    #     host: ${{ secrets.HOST }}
-    #     username: ${{ secrets.USERNAME }}
-    # - name: Run Command
-    #   uses: tiyee/action-ssh@v1.0.1
-    #   with:
-    #       host: ${{ secrets.HOST }} 
-    #       port: ${{ secrets.PORT }} 
-    #       username: ${{ secrets.USERNAME }} 
-    #       privateKey: ${{ secrets.SSH_KEY }} 
-    #       command: 'ls -alh'
-
-      # run: |
-      #     ssh ${{ secrets.USERNAME }}@${{ secrets.HOST }} "whoami;ls -la"
-          
-    # - name: Checkout code
-    #   uses: actions/checkout@v2
+    - name: Setting SSH key
+      uses: webfactory/ssh-agent@v0.5.4
+      with:
+        ssh-private-key: ${{ secrets.KEY }}
+    - name: Scan public keys
+      run: ssh-keyscan ${{ secrets.HOST }} >> ~/.ssh/known_hosts
+    - name: Connect to Server
+      uses: actions/setup-ssh@v3
+      with:
+        ssh-key: ${{ secrets.KEY }}
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
 
     - name: SSH into remote server and run command
       uses: appleboy/ssh-action@master
