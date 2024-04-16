@@ -20,13 +20,13 @@ jobs:
   ssh:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+    # - name: Checkout code
+    #   uses: actions/checkout@v2
 
     - name: SSH into remote server and run command
       uses: appleboy/ssh-action@master
       with:
-        host: ${{ secrets.HOST }}
+        host: s3.serv00.com
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
@@ -38,7 +38,7 @@ jobs:
     # - name: SSH into remote server and run command
     #   uses: appleboy/ssh-action@master
     #   with:
-    #       host: s3.serv00.com
+    #       host: ${{ secrets.HOST }}
     #       username: ${{ secrets.USERNAME }}
     #       password: ${{ secrets.PASSWORD }}
     #       port: ${{ secrets.PORT }}
