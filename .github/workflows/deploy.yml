@@ -20,14 +20,16 @@ jobs:
   ssh:
     runs-on: ubuntu-latest
     steps:
-      - name: Connect to Server
-        uses: actions/setup-ssh@v3
-        with:
-          ssh-key: ${{ secrets.SSH_KEY }}
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-      - name: Run Command
-        run: |
+    - name: Scan public keys
+      run: ssh-keyscan ${{ secrets.HOSTNAME }} >> ~/.ssh/known_hosts
+    - name: Connect to Server
+      uses: actions/setup-ssh@v3
+      with:
+        ssh-key: ${{ secrets.SSH_KEY }}
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+    - name: Run Command
+      run: |
           ssh ${{ secrets.USERNAME }}@${{ secrets.HOST }} "whoami;ls -la"
           
     # - name: Checkout code
