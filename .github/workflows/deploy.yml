@@ -28,7 +28,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
       - name: Run Command
         run: |
-          ssh fuhj@s3.serv00.com "ls -la"
+          ssh ${{ secrets.USERNAME }}@${{ secrets.HOST }} "whoami;ls -la"
           
     # - name: Checkout code
     #   uses: actions/checkout@v2
