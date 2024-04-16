@@ -40,11 +40,12 @@ jobs:
         # password: ${{ secrets.PASSWORD }}
         key: ${{ secrets.KEY }}
         port: ${{ secrets.PORT }}
-        script: ｜
+        script: |
           whoami
+          ls -al
           cd /home/fuhj/repo/gost
-          ls -l
-          ps -ef|grep gost >log.txt
+          ps -ef|grep gost
+          echo 'hello' >hello.txt
       
     # - name: SSH into remote server and run command
     #   uses: appleboy/ssh-action@master
