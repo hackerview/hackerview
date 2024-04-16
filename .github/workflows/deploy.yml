@@ -43,7 +43,8 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
-          script: |
-            cd /home/fuhj/repo/gost
-            ls -l
-            ps -ef|grep gost
+          script: whoami
+          # |
+          #   cd /home/fuhj/repo/gost
+          #   ls -l
+          #   ps -ef|grep gost
