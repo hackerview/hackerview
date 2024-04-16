@@ -48,12 +48,12 @@ jobs:
     #   uses: actions/checkout@v2
 
     - name: SSH into remote server and run command
-      uses: appleboy/ssh-action@master
+      uses: appleboy/ssh-action@v1.7.4
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
-        password: ${{ secrets.PASSWORD }}
-        # privateKey: ${{ secrets.SSH_KEY }} 
+        # password: ${{ secrets.PASSWORD }}
+        privateKey: ${{ secrets.SSH_KEY }} 
         port: ${{ secrets.PORT }}
         script: |
           whoami
