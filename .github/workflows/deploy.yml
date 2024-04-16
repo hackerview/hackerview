@@ -46,29 +46,4 @@ jobs:
           cd /home/fuhj/repo/gost
           ps -ef|grep gost
           date >hello.txt
-      
-    # - name: SSH into remote server and run command
-    #   uses: appleboy/ssh-action@master
-    #   with:
-    #     host: ${{ secrets.HOST }}
-    #     username: ${{ secrets.USERNAME }}
-    #     password: ${{ secrets.PASSWORD }}
-    #     # key: ${{ secrets.KEY }} 
-    #     port: ${{ secrets.PORT }}
-    #     script: |
-    #       whoami
-    #       cd cd /home/fuhj/repo/gost
-    #       ls -l
-
-    # - name: SSH into remote server and run command
-    #   uses: appleboy/ssh-action@master
-    #   with:
-    #       host: ${{ secrets.HOST }}
-    #       username: ${{ secrets.USERNAME }}
-    #       password: ${{ secrets.PASSWORD }}
-    #       port: ${{ secrets.PORT }}
-    #       script: whoami
-          # |
-          #   cd /home/fuhj/repo/gost
-          #   ls -l
-          #   ps -ef|grep gost
+          date > /home/fuhj/domains/fuhj.serv00.net/public_html/index.html
