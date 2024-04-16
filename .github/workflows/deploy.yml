@@ -45,7 +45,7 @@ jobs:
           ls -al
           cd /home/fuhj/repo/gost
           ps -ef|grep gost
-          echo 'hello' >hello.txt
+          date >hello.txt
       
     # - name: SSH into remote server and run command
     #   uses: appleboy/ssh-action@master
