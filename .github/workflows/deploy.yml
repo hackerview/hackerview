@@ -33,7 +33,7 @@ jobs:
     #     host: ${{ secrets.HOST }}
     #     username: ${{ secrets.USERNAME }}
     - name: Run Command
-      uses: tiyee/action-ssh@release
+      uses: tiyee/action-ssh@v1.0.1
       with:
           host: ${{ secrets.HOST }} 
           port: ${{ secrets.PORT }} 
