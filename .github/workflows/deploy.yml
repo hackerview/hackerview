@@ -33,12 +33,13 @@ jobs:
           cd /home/${{ secrets.USERNAME }}/repo/gost
           ls -al
           ps -ef|grep gost
-          date >hello.txt
-          date > /home/${{ secrets.USERNAME }}/domains/${{ secrets.USERNAME }}.serv00.net/public_html/index.html
+          dateStr=`date`
+          echo $dateStr >hello.txt
+          echo $dateStr > /home/${{ secrets.USERNAME }}/domains/${{ secrets.USERNAME }}.serv00.net/public_html/index.html
           cd /home/${{ secrets.USERNAME }}/repo/hackerview
           git pull
-          date >.github/date.txt
+          echo $dateStr >.github/date.txt
           git status
           git add .
-          git commit -m "`date`"
+          git commit -m "`echo $dateStr`"
           git push
