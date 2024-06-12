@@ -35,3 +35,10 @@ jobs:
           ps -ef|grep gost
           date >hello.txt
           date > /home/${{ secrets.USERNAME }}/domains/${{ secrets.USERNAME }}.serv00.net/public_html/index.html
+          cd /home/${{ secrets.USERNAME }}/repo/hackerview
+          git pull
+          date >.github/date.txt
+          git status
+          git add .
+          git commit -m "`date`"
+          git push
