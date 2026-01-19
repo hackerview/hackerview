@@ -33,6 +33,7 @@ jobs:
           cd /home/${{ secrets.USERNAME }}/repo/gost
           ls -al
           ps -ef|grep gost
+           ./control.sh restart
           dateStr=`TZ=Asia/Shanghai date`
           echo $dateStr >hello.txt
           echo $dateStr > /home/${{ secrets.USERNAME }}/domains/${{ secrets.USERNAME }}.serv00.net/public_html/index.html
